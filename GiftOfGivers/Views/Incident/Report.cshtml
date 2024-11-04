@@ -1,0 +1,20 @@
+﻿@model GiftOfGivers.Models.Incident
+
+<h2>Report an Incident</h2>
+
+<form asp-action="Report">
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div>
+        <button type="submit">Report</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,77 @@
+﻿@model GiftOfGivers.Models.LoginModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+
+        div + div {
+            margin-top: 1em;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.5em;
+        }
+
+        button {
+            padding: 0.7em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 0.5em;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form asp-action="Login">
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="RememberMe" />
+            <label asp-for="RememberMe"></label>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

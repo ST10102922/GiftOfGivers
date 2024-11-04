@@ -1,0 +1,18 @@
+﻿@model IEnumerable<GiftOfGivers.Models.Incident>
+
+<h2>Welcome to GiftOfGivers</h2>
+<p>Welcome message and overview of the site.</p>
+
+<ul>
+    @if (Model != null)
+    {
+        foreach (var incident in Model)
+        {
+            <li>@incident.Description</li>
+        }
+    }
+</ul>
+
+<li>
+    <a asp-controller="Incident" asp-action="Report">Report an Incident</a>
+</li>
